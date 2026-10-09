@@ -1,4 +1,3 @@
-import AdFlow from '../ads/AdFlow'
 import { useState, useRef } from 'react'
 import axios from 'axios'
 import { useSEO, experimentSchema } from '../useSEO'
@@ -408,7 +407,7 @@ export default function Practical5() {
 
   return (
     <main className="practical-page">
-      <AdFlow>
+      <div className="container">
 
         {/* Header */}
         <div className="section-header">
@@ -599,7 +598,7 @@ export default function Practical5() {
             </p>
         </ExperimentInfo>
 
-      </AdFlow>
+      </div>
     </main>
   )
 }

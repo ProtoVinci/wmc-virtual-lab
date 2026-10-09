@@ -1,13 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useSEO } from '../useSEO'
 import CardArt from '../components/CardArt'
-import AdSlot from '../ads/AdSlot'
 
 export default function Home() {
-  // First-time visitors are redirected to onboarding straight away; don't fire ad
-  // requests for the single frame Home is mounted before that.
-  const showAds = !!localStorage.getItem('onboardingCompleted')
-
   useSEO({
     title: 'Wireless & Mobile Communication Virtual Lab',
     description: 'Free virtual lab for Wireless & Mobile Communication. Measure Wi-Fi RSSI, path loss, Bluetooth range, multipath fading and interference from live data.',
@@ -60,7 +55,6 @@ export default function Home() {
           {/* Phones-only heading above the experiment tiles; the hero above
               already states the full lab name. */}
           <h2 className="mobile-section-label">Experiments</h2>
-          {showAds && <AdSlot variant="banner" flow />}
           <div className="practical-cards">
 
             {/* Practical 4 */}
@@ -104,8 +98,6 @@ export default function Home() {
               <span className="card-cta violet">Launch Experiment →</span>
             </Link>
 
-            {showAds && <AdSlot variant="native:0" flow />}
-
             {/* Practical 6 */}
             <Link to="/practical6" className="practical-card cyan">
               <div className="card-icon-wrap cyan">🔵</div>
@@ -146,8 +138,6 @@ export default function Home() {
               <span className="card-cta violet">Launch Experiment →</span>
             </Link>
 
-            {showAds && <AdSlot variant="rectangle" flow />}
-
             {/* Practical 8 */}
             <Link to="/practical8" className="practical-card cyan">
               <div className="card-icon-wrap cyan" style={{ background: 'var(--cyan-dim)', boxShadow: '0 0 20px var(--cyan-glow)' }}>🌊</div>
@@ -186,9 +176,6 @@ export default function Home() {
               <span className="card-cta cyan" style={{ color: 'var(--cyan)' }}>Launch Experiment →</span>
             </Link>
           </div>
-
-          {showAds && <AdSlot variant="banner" flow />}
-          {showAds && <AdSlot variant="rectangle" flow />}
         </div>
       </section>
     </main>
